@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--// Basic Page Needs
+    ================================================== -->
+    <title>Client</title>
+    <!--// Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!--// Favicon
+    ================================================== -->
+    <link rel="shortcut icon" href="images/favicon-16x16.png">
+    <!--// CSS
+    ================================================== -->
+    <!--// Global CSS Compulsory (Do not remove)
+    ================================================== -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/all.min.css">
+
+    <!--// Page CSS Implementing Plugins (Remove the plugin CSS here if site does not use that feature)
+    ================================================== -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!--// Template Style
+    ================================================== -->
+    <link rel="stylesheet" href="/css/style.css">
+<style>
+  .blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body id="Home">
+<div class="bg-light h-100vh position-relative overflow-hidden">
+  <div class="p-5 h-100 position-relative z-index-2 overflow-auto  py-3 animated bounceInUp">
+    
+    <div class="row">
+      <h1 class="display-4 p-3">Neat Indicators <span class="text-muted">for a<br> Client Dashboard</span></h1>
+
+      <!--       Active users indicator -->
+      <div class="p-2 bg-primary text-white rounded m-3 p-3 shadow-lg text-center animated flipInX delay-2">
+        <div class="text-uppercase text-tracked opacity-50 mb-2">Date now</div>
+        <div class="display-4 text-monospace" id="date_digit"></div>
+        <small id="current_date"></small>
+      </div>
+     <!--       Health Status indicator -->
+      <div class="d-flex flex-column p-3 m-3 bg-white shadow-sm rounded animated flipInX delay-11">
+        <div class="text-uppercase text-tracked text-muted mb-2">Health status</div>
+
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          
+          <div>
+            <i class="fas fa-database"></i> Database  
+          </div>
+          <i class="fas fa-circle fa-xs text-danger dbclass"></i>
+        </div>
+        
+        <div class="d-flex justify-content-between align-items-center">
+          
+          <div>
+            <i class="fas fa-server"></i> API  
+          </div>
+          <i class="fas fa-circle fa-xs text-danger animated infinite flash slower apiclass"></i>
+        </div>
+        <div>
+          <small id="start">No WebSocket connection :(</small>  
+        </div>
+      </div>
+
+          <!--       Time on site indicator -->
+          <div class="d-flex flex-column p-3 m-3 bg-white shadow-sm rounded animated flipInX delay-6">
+            <div class="text-uppercase text-tracked text-muted mb-2">time on server</div>
+    
+            <div class="d-flex align-items-center">
+              <i class="fas fa fa-clock opacity-25 mr-2 text-size-3"></i>
+              <span class="text-size-2 text-monospace" id="hrs"></span>
+              <span class="text-size-2">:</span>
+              <span class="text-size-2 text-monospace" id="min">30</span>
+            </div>
+            <!-- <div class="text-muted small">
+              <span class="text-success text-monospace">
+                <i class="fas fa fa-long-arrow-alt-up"></i>
+                5% 
+              </span> vs last week
+            </div> -->
+          </div>
+      
+      <!--       Revenue today indicator -->
+      <div class="p-2 bg-white rounded p-3 m-3 shadow-sm animated flipInX delay-3">
+        <div class="text-uppercase text-tracked text-muted mb-2">
+          Adidas T-shirt
+        </div>
+        <div class="badge badge-success text-size-2 text-monospace mx-auto amount" id="t-shirts_">$<span id="t-shirts"></span><span class="opacity-50 small">.00</span></div>
+        <!-- <div class="text-muted small mt-1">
+          <span class="text-danger" id="t-shirt">
+      <i class="fas fa fa-long-arrow-alt-down"></i>
+      5% 
+    </span> vs average
+        </div> -->
+      </div>
+
+      <div class="p-2 bg-white rounded p-3 m-3 shadow-sm animated flipInX delay-3">
+        <div class="text-uppercase text-tracked text-muted mb-2">
+         Blue Jeans
+        </div>
+        <div class="badge badge-danger text-size-2 text-monospace mx-auto amount" id="jeans_">$<span id="jeans">00</span><span class="opacity-50 small">.00</span></div>
+        <!-- <div class="text-muted small mt-1">
+          <span class="text-danger">
+      <i class="fas fa fa-long-arrow-alt-down"></i>
+      5% 
+    </span> vs average
+        </div> -->
+      </div>
+      <div class="p-2 bg-white rounded p-3 m-3 shadow-sm animated flipInX delay-3">
+        <div class="text-uppercase text-tracked text-muted mb-2">
+          Checkered T-shirt(Divers)
+        </div>
+        <div class="badge badge-danger text-size-2 text-monospace mx-auto amoumt" id="divers_">$<span id="divers"></span><span class="opacity-50 small">.00</span></div>
+        <!-- <div class="text-muted small mt-1">
+          <span class="text-danger">
+      <i class="fas fa fa-long-arrow-alt-down"></i>
+      5% 
+    </span> vs average
+        </div> -->
+      </div>
+      
+      <!--       Sessions by device  -->
+      <div class="d-flex flex-column p-3 m-3 bg-white shadow-sm rounded animated flipInX delay-7">
+        <div class="text-uppercase text-tracked text-muted mb-2">Sessions by device</div>
+        <div class="row text-center">
+          <div class="col">
+            <i class="fas fa fa-mobile mb-2 text-size-2"></i>
+            <div class="text-monospace">54%</div>
+          </div>
+          <div class="col">
+            <i class="fas fa fa-tablet opacity-50 mb-2 text-size-2"></i>
+            <div class="text-monospace text-secondary">26%</div>
+          </div>
+          <div class="col">
+            <i class="fas fa fa-laptop opacity-25 mb-2 text-size-2"></i>
+            <div class="text-monospace text-secondary">20%</div>
+          </div>
+        </div>
+      </div>
+
+      <!--       Top Referrals -->
+      <div class="d-flex flex-column p-3 m-3 bg-white shadow-sm rounded animated flipInX delay-8">
+        <div class="text-uppercase text-tracked text-muted mb-2">Top Referrals</div>
+
+        <div>
+          <i class="fas fa fa-caret-up text-success"></i>
+          <span class="mx-1 text-monospace">62%</span>
+<!--           <i class="fab fa-xs fa-google"></i>  -->
+          <a href="#">google</a>
+        </div>
+        <div class="opacity-75">
+          <i class="fas fa fa-caret-down text-danger"></i>
+          <span class="text-secondary mx-1 text-monospace">25%<span>
+<!--           <i class="fab fa-xs fa-y-combinator"></i>  -->
+          <a href="#" >news.ycombinator</a>
+        </div>
+        <div class="opacity-50">
+          <i class="text-muted">�</i>
+          <span class="text-secondary mx-1 text-monospace">20%</span>
+<!--           <i class="fab fa-xs fa-product-hunt"></i>  -->
+          <a href="#" >producthunt</a>
+        </div>
+      </div>
+
+      <!--       Feedback -->
+      <div class="d-flex position-relative overflow-hidden flex-column p-3 m-3 bg-white shadow-sm rounded animated flipInX delay-9">
+        <div class="text-uppercase text-tracked text-muted mb-2">Latest Feedback</div>
+        <i class="fas fa fa-smile opacity-25 fa-5x text-warning decorative-icon"></i>
+
+        <div class="d-flex justify-content-between">
+          <div>
+            <img class="d-block rounded-circle" width="32" src="images/admin.jpg" />
+          </div>
+          <div class="pl-3 pt-1">
+            Nothing bad to say<br/> at this point ??
+            <a class="d-block mt-1 small opacity-75" href="mailto:niteshnavhal997@gmail.com">Write back</a>
+          </div>
+        </div>
+      </div>
+          
+      <!--       Balance indicator -->
+      <div class="p-2 bg-white rounded p-3 m-3 shadow-sm animated flipInX delay-10">
+        <div class="text-uppercase text-tracked text-muted mb-2">
+          Balance
+        </div>
+        <div class="text-muted">
+          <i class="fas fa fa-long-arrow-alt-up text-success"></i>
+          <span class="text-success text-size-2 text-monospace">
+            0.02% 
+          </span> this month
+        </div>
+        <span class="small">Stripe:</span>
+        <span class="small text-monospace mx-auto">$4,480<span class="opacity-50">.00</span>
+        </span>
+      </div>
+          
+      <!--       end of indicators -->
+    </div>
+
+    <div class="small mx-3 my-3 text-muted">
+     API v1.0.1
+    </div>
+  </div>
+  <!--    decoarative tachometers-->
+  <i class="position-absolute z-index-1 fas fa-tachometer-alt text-secondary opacity-25 not-animated infinite pulse slower" style="bottom: 0.25em; right: -0.5em; font-size: 20em;"></i>
+  <i class="position-absolute fas fa-tachometer-alt text-secondary opacity-25 not-animated infinite pulse slower delay-2s" style="bottom: -0.25em; right: 1em; font-size: 15em;"></i>
+</div>
+
+<!--// Back To Top End -->
+<!--// Javascript
+================================================== -->
+<!--// Global JS Compulsory (Do not remove)
+================================================== -->
+<script src="js/jquery.min.js"></script>
+<script src="js/fontawesome.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>
